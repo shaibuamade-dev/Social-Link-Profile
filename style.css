@@ -1,0 +1,68 @@
+* {
+  margin: 0px;
+  box-sizing: 0;
+}
+
+body {
+  background-color: hsl(0, 0%, 8%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  font-family: inter;
+  font-size:  14px;
+}
+
+.back-card {
+  background-color: hsl(0, 0%, 12%);
+  height: 550px;
+  object-position: center;
+  margin: 1rem;
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.profile-pic {
+  height: auto;
+  max-height: 150px;
+  border-radius: 90px;
+  width: 50%;
+  object-fit: cover;
+}  
+
+.user-name {
+  margin: 10px;
+  color: hsl(0, 0%, 100%); 
+}
+
+.london {
+  color: hsl(75, 94%, 57%);
+}
+
+.bio {
+  margin: 20px;
+  color: hsl(0, 0%, 100%);
+}
+
+.button-cover {
+  margin: 10px;
+}
+
+.buttons {
+  height: 40px;
+  width: 200px;
+  background-color: hsl(0, 0%, 20%);
+  border: none;
+  border-radius: 5px;
+  color: hsl(0, 0%, 100%);
+}
+.buttons:hover {
+  background-color:hsl(75, 94%, 57%);
+  cursor: pointer;
+  color:hsl(0, 0%, 12%)
+}
