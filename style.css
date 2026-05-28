@@ -1,6 +1,10 @@
+/* ==========================================
+   1. GLOBAL RESET & CORE THEME
+   ========================================== */
 * {
-  margin: 0px;
-  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* FIX: Changed from 0 to border-box so padding doesn't cause overflow */
 }
 
 body {
@@ -8,61 +12,103 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  min-height: 100vh; /* FIX: Added min-height to perfectly center the card vertically on all viewports */
   padding: 2rem 1rem;
-  font-family: inter;
-  font-size:  14px;
+  font-family: 'Inter', sans-serif; /* Fallback font added */
+  font-size: 14px;
 }
 
+/* ==========================================
+   2. CENTRAL PROFILE CARD DESIGN
+   ========================================== */
 .back-card {
   background-color: hsl(0, 0%, 12%);
-  height: 550px;
-  object-position: center;
-  margin: 1rem;
-  max-width: 1024px;
+  /* FIX: Removed hardcoded 'height: 550px'. 'min-height' allows the card to adapt dynamically if content grows */
+  min-height: 480px; 
+  /* FIX: Adjusted max-width down to a standard card dimension (380px) so it doesn't stretch massively on desktops */
+  max-width: 380px; 
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1.5rem; /* Better internal breathing space */
+  border-radius: 12px; /* Adds clean structural rounding to the card container edges */
+  margin: auto;
 }
 
+/* ==========================================
+   3. INTERNAL AVATAR & TEXT ELEMENTS
+   ========================================== */
 .profile-pic {
-  height: auto;
-  max-height: 150px;
-  border-radius: 90px;
-  width: 50%;
+  height: 80px; /* Specific static height keeping aspect ratios secure */
+  width: 80px;  /* Keeps the profile picture a uniform, perfect circle across all mobile/desktop targets */
+  border-radius: 50%; /* Uniform circle boundary fallback shape value */
   object-fit: cover;
+  margin-bottom: 1rem;
 }  
 
 .user-name {
-  margin: 10px;
+  margin: 10px 0 5px 0;
   color: hsl(0, 0%, 100%); 
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .london {
   color: hsl(75, 94%, 57%);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .bio {
-  margin: 20px;
-  color: hsl(0, 0%, 100%);
+  margin: 15px 0 20px 0;
+  color: hsl(0, 0%, 80%);
+  text-align: center;
+  line-height: 1.4;
 }
 
+/* ==========================================
+   4. LIQUID NAVIGATION LINKS / ACTIONS
+   ========================================== */
 .button-cover {
-  margin: 10px;
+  margin: 6px 0;
+  width: 100%; /* FIX: Forces structural block wrapper to adapt cleanly to parent card widths */
+  display: flex;
+  justify-content: center;
 }
 
 .buttons {
-  height: 40px;
-  width: 200px;
+  height: 45px;
+  width: 100%; /* FIX: Buttons expand cleanly to match parent margins, avoiding rigid overflowing lines on mobile */
   background-color: hsl(0, 0%, 20%);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: hsl(0, 0%, 100%);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out; /* Fluid aesthetic color transitions on state focus actions */
 }
+
 .buttons:hover {
-  background-color:hsl(75, 94%, 57%);
+  background-color: hsl(75, 94%, 57%);
   cursor: pointer;
-  color:hsl(0, 0%, 12%)
+  color: hsl(0, 0%, 12%);
+  transform: scale(1.01); /* Micro-interaction feedback effect */
+}
+
+/* ==========================================
+   5. RESPONSIVE FLUID ADJUSTMENTS
+   ========================================== */
+@media (max-width: 375px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .back-card {
+    padding: 1.5rem 1rem; /* Condenses spacing tightly to stay within smaller mobile boundaries */
+  }
+
+  .user-name {
+    font-size: 1.25rem;
+  }
 }
